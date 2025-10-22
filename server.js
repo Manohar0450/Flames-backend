@@ -36,28 +36,6 @@ app.get("/", (req, res) => {
 });
 
 // ✅ POST: Save FLAMES result
-// In your Node.js file:
-
-// Change this:
-// app.post("/flames", async (req, res) => { ... });
-
-// To this:
-// app.post("/save", async (req, res) => { 
-// or if your Vercel file is api/save.js, then simply app.post("/", ...)
-// but based on your previous code, stick to /flames or update to /save
-// if your flutter code insists on /api/save
-// For consistency with your error, let's assume the route should be /save:
-
-// --- Option 2: Change Node.js route ---
-app.post("/save", async (req, res) => {
-    try {
-        await connectToDatabase(); 
-        const Flames = getFlamesModel();
-        // ... rest of your save logic
-    } catch (err) {
-        // ... error handling
-    }
-});
 app.post("/save", async (req, res) => {
   try {
     const { name1, name2, result } = req.body;
